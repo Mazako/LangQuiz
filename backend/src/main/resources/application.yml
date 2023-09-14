@@ -1,0 +1,8 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, beans, metrics
+  endpoint:
+    health:
+      show-details: always
