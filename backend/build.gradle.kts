@@ -18,17 +18,20 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-jetty")
-//	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-//	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-//	implementation("org.springframework.boot:spring-boot-starter-jdbc")
+	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+
 	implementation("org.springframework.boot:spring-boot-starter-mail")
 //	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("io.mongock:mongock-bom:5.3.4")
+	compileOnly("io.mongock:mongock-springboot-v3:5.3.4")
+	implementation("io.mongock:mongodb-springdata-v4-driver:5.3.4")
+
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-//	implementation("org.liquibase:liquibase-core")
 //	implementation("org.springframework.session:spring-session-jdbc")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
+
 }
 
 tasks.withType<Test> {
@@ -41,5 +44,5 @@ configurations {
 	}
 }
 
-// BECAUSE JETTY WORKS ON SERVLET 6.0
+// BECAUSE SPRING WORKS ON SERVLET 6.0 AND JETTY DONT SUPPORT IT
 ext["jakarta-servlet.version"] = "5.0.0"
