@@ -1,2 +1,12 @@
-GET http://localhost:8080/hello
-Accept: application/json
+POST localhost:8080/translation/add
+Content-Type: application/json
+
+{
+    "langA": "PL",
+    "langB": "FF",
+    "wordA": "Gitara",
+    "wordB": "Siema"
+}
+
+###
+DELETE localhost:8080/translation/delete/6504e93b84e81b455d35cc09
