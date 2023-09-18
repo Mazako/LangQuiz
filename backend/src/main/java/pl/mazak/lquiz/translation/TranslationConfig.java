@@ -9,6 +9,6 @@ public class TranslationConfig {
 
     @Bean
     public TranslationService translationService(TranslationRepository translationRepository) {
-        return new TranslationService(translationRepository);
+        return new TranslationServiceImpl(translationRepository);
     }
 }
