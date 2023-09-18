@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface TranslationRepository extends MongoRepository<Translation, String> {
 
     @Query("{$or: [ {langA: ?1, wordA: ?0}, {langB: ?1, wordB: ?0} ]}")
-    Optional<Translation> containsWordInLanguage(String word, AllowedLanguages allowedLanguage);
+    Optional<Translation> containsWordInLanguage(String word, AllowedLanguage allowedLanguage);
 
 }

@@ -1,6 +1,6 @@
 package pl.mazak.lquiz.translation;
 
-import pl.mazak.lquiz.persistance.translation.AllowedLanguages;
+import pl.mazak.lquiz.persistance.translation.AllowedLanguage;
 import pl.mazak.lquiz.persistance.translation.TranslationRepository;
 
 import java.util.Optional;
@@ -28,7 +28,7 @@ public class TranslationServiceImpl implements TranslationService {
     }
 
     @Override
-    public Optional<TranslationDTO> findTranslationByLangAndWord(AllowedLanguages language, String word) {
+    public Optional<TranslationDTO> findTranslationByLangAndWord(AllowedLanguage language, String word) {
         return translationRepository.containsWordInLanguage(word, language)
                 .map(TranslationDTO::toTranslationDTO);
     }

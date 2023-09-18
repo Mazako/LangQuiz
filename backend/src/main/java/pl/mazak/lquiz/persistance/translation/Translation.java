@@ -8,12 +8,12 @@ public class Translation {
 
     @Id
     private String id;
-    private AllowedLanguages langA;
-    private AllowedLanguages langB;
+    private AllowedLanguage langA;
+    private AllowedLanguage langB;
     private String wordA;
     private String wordB;
 
-    public Translation(AllowedLanguages langA, AllowedLanguages langB, String wordA, String wordB) {
+    public Translation(AllowedLanguage langA, AllowedLanguage langB, String wordA, String wordB) {
         this.langA = langA;
         this.langB = langB;
         this.wordA = wordA;
@@ -24,19 +24,19 @@ public class Translation {
         return id;
     }
 
-    public AllowedLanguages getLangA() {
+    public AllowedLanguage getLangA() {
         return langA;
     }
 
-    public void setLangA(AllowedLanguages langA) {
+    public void setLangA(AllowedLanguage langA) {
         this.langA = langA;
     }
 
-    public AllowedLanguages getLangB() {
+    public AllowedLanguage getLangB() {
         return langB;
     }
 
-    public void setLangB(AllowedLanguages langB) {
+    public void setLangB(AllowedLanguage langB) {
         this.langB = langB;
     }
 

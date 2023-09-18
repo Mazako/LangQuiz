@@ -2,7 +2,7 @@ package pl.mazak.lquiz.translation;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.mazak.lquiz.persistance.translation.AllowedLanguages;
+import pl.mazak.lquiz.persistance.translation.AllowedLanguage;
 
 import static java.util.Objects.requireNonNull;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -32,7 +32,7 @@ public class TranslationController {
     }
 
     @GetMapping("/find")
-    public ResponseEntity<TranslationDTO> getWord(@RequestParam AllowedLanguages language,
+    public ResponseEntity<TranslationDTO> getWord(@RequestParam AllowedLanguage language,
                                                   @RequestParam String word) {
         return translationService.findTranslationByLangAndWord(language, word)
                 .map(ResponseEntity::ok)

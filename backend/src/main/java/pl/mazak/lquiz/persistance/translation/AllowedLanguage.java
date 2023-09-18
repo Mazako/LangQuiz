@@ -1,12 +1,12 @@
 package pl.mazak.lquiz.persistance.translation;
 
-public enum AllowedLanguages {
+public enum AllowedLanguage {
     EN("English"),
     PL("Polish");
 
     private final String description;
 
-    AllowedLanguages(String description) {
+    AllowedLanguage(String description) {
         this.description = description;
     }
 

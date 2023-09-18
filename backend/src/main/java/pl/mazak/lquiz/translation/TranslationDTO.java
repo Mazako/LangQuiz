@@ -1,11 +1,11 @@
 package pl.mazak.lquiz.translation;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import pl.mazak.lquiz.persistance.translation.AllowedLanguages;
+import pl.mazak.lquiz.persistance.translation.AllowedLanguage;
 import pl.mazak.lquiz.persistance.translation.Translation;
 
-public record TranslationDTO(@JsonProperty("langA") AllowedLanguages langA,
-                             @JsonProperty("langB") AllowedLanguages langB,
+public record TranslationDTO(@JsonProperty("langA") AllowedLanguage langA,
+                             @JsonProperty("langB") AllowedLanguage langB,
                              @JsonProperty("wordA") String wordA,
                              @JsonProperty("wordB") String wordB) {
     Translation toTranslation() {

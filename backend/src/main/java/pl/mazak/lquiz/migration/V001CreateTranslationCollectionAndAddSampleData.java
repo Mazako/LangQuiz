@@ -8,8 +8,8 @@ import pl.mazak.lquiz.persistance.translation.TranslationRepository;
 
 import java.util.List;
 
-import static pl.mazak.lquiz.persistance.translation.AllowedLanguages.EN;
-import static pl.mazak.lquiz.persistance.translation.AllowedLanguages.PL;
+import static pl.mazak.lquiz.persistance.translation.AllowedLanguage.EN;
+import static pl.mazak.lquiz.persistance.translation.AllowedLanguage.PL;
 
 @ChangeUnit(id="createTranslationCollectionAndAddSampleData", order = "001", author = "Mazak")
 public class V001CreateTranslationCollectionAndAddSampleData {
