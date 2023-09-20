@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "langA": "PL",
-    "langB": "FF",
+    "langB": "EN",
     "wordA": "Gitara",
     "wordB": "Siema"
 }

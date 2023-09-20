@@ -17,7 +17,6 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.boot:spring-boot-starter-jetty")
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 
 	implementation("org.springframework.boot:spring-boot-starter-mail")
@@ -32,21 +31,13 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 
-	testImplementation ("org.testcontainers:testcontainers:1.18.1")
-	testImplementation ("org.testcontainers:junit-jupiter:1.18.1")
-	testImplementation ("org.testcontainers:mongodb:1.18.1")
+	testImplementation ("org.testcontainers:testcontainers:1.19.0")
+	testImplementation ("org.testcontainers:junit-jupiter:1.19.0")
+	testImplementation ("org.testcontainers:mongodb:1.19.0")
+
 
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
-
-configurations {
-	all {
-		exclude("org.springframework.boot", "spring-boot-starter-tomcat")
-	}
-}
-
-// BECAUSE SPRING WORKS ON SERVLET 6.0 AND JETTY DONT SUPPORT IT
-ext["jakarta-servlet.version"] = "5.0.0"
