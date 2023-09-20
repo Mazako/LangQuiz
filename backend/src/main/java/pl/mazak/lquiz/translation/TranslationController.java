@@ -17,18 +17,18 @@ public class TranslationController {
         this.translationService = requireNonNull(translationService);
     }
     @PostMapping("/add")
-    public ResponseEntity<Void> addTranslation(@RequestBody TranslationDTO translationDTO) {
-        translationService.addWord(translationDTO);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<String> addTranslation(@RequestBody TranslationDTO translationDTO) {
+        String id = translationService.addWord(translationDTO);
+        return ResponseEntity.ok(id);
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleleTranslation(@PathVariable String id) {
-        String s = translationService.deleteWordById(id);
-        if (s == null) {
+        String deletedWord = translationService.deleteWordById(id);
+        if (deletedWord == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(id);
+        return ResponseEntity.ok(deletedWord);
     }
 
     @GetMapping("/find")

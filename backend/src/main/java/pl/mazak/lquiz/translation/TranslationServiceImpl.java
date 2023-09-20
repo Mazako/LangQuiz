@@ -14,8 +14,9 @@ public class TranslationServiceImpl implements TranslationService {
         this.translationRepository = requireNonNull(translationRepository);
     }
     @Override
-    public void addWord(TranslationDTO translationDTO) {
-        translationRepository.save(translationDTO.toTranslation());
+    public String addWord(TranslationDTO translationDTO) {
+        return translationRepository.save(translationDTO.toTranslation())
+                .getId();
     }
 
     @Override
