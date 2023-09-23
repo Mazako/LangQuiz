@@ -26,8 +26,23 @@ class TranslationTest extends TestWithMongoDB {
     void shouldFindWordReturnValues() {
         TranslationDTO translationDTO = new TranslationDTO(PL, EN, "Dupa", "Ass");
         translationClient.addWord(translationDTO);
-        Optional<TranslationDTO> word = translationClient.findTranslationByLangAndWord(EN, "Ass");
+        Optional<TranslationDTO> word = translationClient.findTranslation(PL, "Dupa");
         Assertions.assertThat(word).hasValue(translationDTO);
+    }
+
+    @Test
+    void shouldDeleteTranslation() {
+        TranslationDTO translationDTO = new TranslationDTO(PL, EN, "Siema", "Hi");
+        String id = translationClient.addWord(translationDTO);
+        translationClient.deleteWordById(id);
+        assertThat(translationClient.findTranslationById(id)).isEmpty();
+    }
+
+    @Test
+    void shouldSearchedValueBeFirstValueInDTO() {
+        translationClient.addWord(new TranslationDTO(PL, EN, "Siema", "Hi"));
+        Optional<TranslationDTO> hi = translationClient.findTranslation(EN, "Hi");
+        assertThat(hi).hasValue(new TranslationDTO(EN, PL, "Hi", "Siema"));
     }
 
 }

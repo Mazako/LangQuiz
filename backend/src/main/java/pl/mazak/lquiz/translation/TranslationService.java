@@ -7,5 +7,7 @@ import java.util.Optional;
 public interface TranslationService {
     String addWord(TranslationDTO translationDTO);
     String deleteWordById(String id);
-    Optional<TranslationDTO> findTranslationByLangAndWord(AllowedLanguage language, String word);
+    Optional<TranslationDTO> findTranslation(AllowedLanguage language, String word);
+    Optional<TranslationDTO> findTranslationById(String id);
+    Optional<TranslationDTO> findTranslationById(String id, AllowedLanguage lang);
 }

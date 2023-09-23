@@ -32,9 +32,17 @@ public class TranslationController {
     }
 
     @GetMapping("/find")
-    public ResponseEntity<TranslationDTO> getWord(@RequestParam AllowedLanguage language,
-                                                  @RequestParam String word) {
-        return translationService.findTranslationByLangAndWord(language, word)
+    public ResponseEntity<TranslationDTO> findTranslation(@RequestParam AllowedLanguage language,
+                                                          @RequestParam String word) {
+        return translationService.findTranslation(language, word)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/find/{id}")
+    public ResponseEntity<TranslationDTO> findTranslationById(@PathVariable String id,
+                                                              @RequestParam(required = false) AllowedLanguage lang) {
+        return translationService.findTranslationById(id, lang)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
